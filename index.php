@@ -11,7 +11,7 @@ if(isset($_POST['signup']))
 	$contact=$_POST['contact'];
 	$enc_password=$password;
 $sql=mysqli_query($con,"select id from users where email='$email'"); // id của bảng users từ cột email
-$row=mysqli_num_rows($sql);
+$row=mysqli_num_rows($sql); // mysqli_num_rows là kết quả tập hợp của các hàng mysqli_query
 if($row>0)
 {
 	echo "<script>alert('Email id đã tồn tại với một tài khoản khác. Vui lòng thử với id email khác');</script>";
@@ -26,7 +26,7 @@ if($msg)
 }
 }
 
-// Code for login 
+// Code chức năng đăng nhập
 if(isset($_POST['login']))
 {
 $password=$_POST['password'];
@@ -40,18 +40,20 @@ $extra="welcome.php";
 $_SESSION['login']=$_POST['uemail'];
 $_SESSION['id']=$num['id'];
 $_SESSION['name']=$num['fname'];
-$host=$_SERVER['HTTP_HOST'];
-$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
+$host=$_SERVER['HTTP_HOST']; // Trả về yêu cầu từ yêu cầu hiện tạis
+$uri=rtrim(dirname($_SERVER['PHP_SELF']),'/\\'); 
+// rtrim loại bỏ khoảng trắng dirname trả về đường dẫn đến thư mục gốc
+// sau đó $_Server sẽ thông qua thành phần PHP_SELF để trả về tên file của file đang được chạy
 header("location:http://$host$uri/$extra");
 exit();
 }
 else
 {
-echo "<script>alert('Invalid username or password');</script>";
+echo "<script>alert('Sai tên đăng nhập hoặc mật khẩu');</script>";
 $extra="index.php";
 $host  = $_SERVER['HTTP_HOST'];
 $uri  = rtrim(dirname($_SERVER['PHP_SELF']),'/\\');
-//header("location:http://$host$uri/$extra");
+// header("location:http://$host$uri/$extra");
 exit();
 }
 }
