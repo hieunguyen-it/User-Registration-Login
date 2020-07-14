@@ -214,7 +214,6 @@ if (isset($_POST["umail"])) {
 				<div class="resp-tabs-container">
 					<div class="tab-1 resp-tab-content" aria-labelledby="tab_item-0">
 						<div class="facts">
-
 							<div class="register">
 								<form name="registration" method="post" action="" enctype="multipart/form-data">
 									<p>First Name </p>
@@ -233,7 +232,6 @@ if (isset($_POST["umail"])) {
 										<div class="clear"> </div>
 									</div>
 								</form>
-
 							</div>
 						</div>
 					</div>
@@ -241,8 +239,6 @@ if (isset($_POST["umail"])) {
 						<div class="facts">
 							<div class="login">
 								<div class="buttons">
-
-
 								</div>
 								<form name="login" action="" method="post">
 									<input type="text" class="text" name="uemail" value="" placeholder="Enter your registered email">
